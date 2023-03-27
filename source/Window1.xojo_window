@@ -152,9 +152,11 @@ End
 		  MQTTLib.VerboseMode = True
 		  
 		  // Setup the socket
-		  Dim theSocket As New TCPSocket
+		  Dim theSocket As New SSLSocket
 		  theSocket.Address = "test.mosquitto.org"
-		  theSocket.Port = MQTTLib.kDefaultPort
+		  theSocket.Port = MQTTLib.kDefaultPortSecured
+		  theSocket.SSLEnabled=true
+		  theSocket.SSLConnectionType=SSLSocket.SSLConnectionTypes.TLSv12
 		  
 		  // Setup the connection options
 		  Dim theConnectOptions As New MQTTLib.OptionsCONNECT

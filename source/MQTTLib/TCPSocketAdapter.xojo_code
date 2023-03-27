@@ -12,7 +12,7 @@ Implements SocketAdapter
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(inTCPSocket As TCPSocket)
+		Sub Constructor(inTCPSocket As SSLSocket)
 		  // Store the TCPSocket reference
 		  
 		  pTCPSocket = inTCPSocket
@@ -45,7 +45,7 @@ Implements SocketAdapter
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub HandleTCPSocketError(inTCPSocket As TCPSocket)
+		Sub HandleTCPSocketError(inTCPSocket as TCPSocket, error as RuntimeException)
 		  //-- Handles the TCPSocket.Error event
 		  
 		  // Retrieve and translate the error code
@@ -161,7 +161,7 @@ Implements SocketAdapter
 	#tag EndProperty
 
 	#tag Property, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit))
-		Private pTCPSocket As TCPSocket
+		Private pTCPSocket As SSLSocket
 	#tag EndProperty
 
 

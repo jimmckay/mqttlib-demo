@@ -79,17 +79,20 @@ Protected Class ClientConnection
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub EasyTCPConnect(inHost As String, inPort As Integer, inClientID As String, inCleanSession As Boolean, inKeepAlive As UInt16)
+		Sub EasyTCPConnect(inHost as String, inPort as Integer, inClientID as String, inCleanSession as Boolean, inKeepAlive as UInt16, secure as Boolean = true)
 		  //-- An easy way to connect via unsecure TCP with fewer parameters
 		  // NB: inKeepAlive is in seconds ( 0 means no keep alive mechanism ) 
 		  
 		  If MQTTLib.VerboseMode Then System.DebugLog CurrentMethodName
 		  
 		  // Create and setup the socket
-		  Dim theSocket As New TCPSocket
+		  Dim theSocket as SSLSocket
+		  
+		  theSocket = New SSLSocket
 		  
 		  theSocket.Address = inHost
 		  theSocket.Port = inPort
+		  theSocket.SSLEnabled=secure
 		  
 		  // Create and setup the connection options
 		  Dim theConnectOptions As New MQTTLib.OptionsCONNECT
