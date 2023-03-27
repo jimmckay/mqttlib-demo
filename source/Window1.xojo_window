@@ -154,7 +154,7 @@ End
 		  // Setup the socket
 		  Dim theSocket As New SSLSocket
 		  theSocket.Address = "test.mosquitto.org"
-		  theSocket.Port = MQTTLib.kDefaultPortSecured
+		  theSocket.Port = MQTTLib.kDefaultPortSecuredAuth
 		  theSocket.SSLEnabled=true
 		  theSocket.SSLConnectionType=SSLSocket.SSLConnectionTypes.TLSv12
 		  
@@ -163,9 +163,11 @@ End
 		  
 		  theConnectOptions.KeepAlive = 30
 		  theConnectOptions.ClientID = "zdEdLRXojoTest"
-		  theConnectOptions.PasswordFlag = False
+		  theConnectOptions.PasswordFlag = true
 		  theConnectOptions.CleanSessionFlag = True
-		  theConnectOptions.UsernameFlag = False
+		  theConnectOptions.UsernameFlag = true
+		  theConnectOptions.Username = "rw"
+		  theConnectOptions.Password = "readwrite"
 		  
 		  theConnectOptions.WillFlag = True
 		  theConnectOptions.WillTopic = "test/zd/world"
