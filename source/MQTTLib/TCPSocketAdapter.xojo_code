@@ -12,14 +12,21 @@ Implements SocketAdapter
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(inTCPSocket As SSLSocket)
+		Sub Constructor(inTCPSocket As TCPSocket)
 		  // Store the TCPSocket reference
 		  
 		  pTCPSocket = inTCPSocket
 		  
-		  AddHandler inTCPSocket.Connected, WeakAddressOf HandleTCPSocketConnected
-		  AddHandler inTCPSocket.DataAvailable, WeakAddressOf HandleTCPSocketIncomingData
-		  AddHandler inTCPSocket.Error, WeakAddressOf HandleTCPSocketError
+		  if inTCPSocket isa SSLSocket then
+		    var inSSLSocket as SSLSocket=SSLSocket(inTCPSocket)
+		    AddHandler inSSLSocket.Connected, WeakAddressOf HandleTCPSocketConnected
+		    AddHandler inSSLSocket.DataAvailable, WeakAddressOf HandleTCPSocketIncomingData
+		    AddHandler inSSLSocket.Error, WeakAddressOf HandleTCPSocketError
+		  else
+		    AddHandler inTCPSocket.Connected, WeakAddressOf HandleTCPSocketConnected
+		    AddHandler inTCPSocket.DataAvailable, WeakAddressOf HandleTCPSocketIncomingData
+		    AddHandler inTCPSocket.Error, WeakAddressOf HandleTCPSocketError
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -161,7 +168,7 @@ Implements SocketAdapter
 	#tag EndProperty
 
 	#tag Property, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit))
-		Private pTCPSocket As SSLSocket
+		Private pTCPSocket As TCPSocket
 	#tag EndProperty
 
 

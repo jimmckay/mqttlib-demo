@@ -86,13 +86,17 @@ Protected Class ClientConnection
 		  If MQTTLib.VerboseMode Then System.DebugLog CurrentMethodName
 		  
 		  // Create and setup the socket
-		  Dim theSocket as SSLSocket
+		  Dim theSocket as TCPSocket
 		  
-		  theSocket = New SSLSocket
+		  if not secure then
+		    theSocket = New TCPSocket
+		  else
+		    theSocket = New SSLSocket
+		    SSLSocket(theSocket).SSLEnabled=true
+		  end if
 		  
 		  theSocket.Address = inHost
 		  theSocket.Port = inPort
-		  theSocket.SSLEnabled=secure
 		  
 		  // Create and setup the connection options
 		  Dim theConnectOptions As New MQTTLib.OptionsCONNECT
