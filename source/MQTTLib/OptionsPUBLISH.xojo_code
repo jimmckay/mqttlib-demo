@@ -161,8 +161,11 @@ Implements ControlPacketOptions
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="DUPFlag"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -170,6 +173,7 @@ Implements ControlPacketOptions
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -177,10 +181,13 @@ Implements ControlPacketOptions
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Message"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -188,16 +195,23 @@ Implements ControlPacketOptions
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PacketID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UInt16"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="QoSLevel"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="MQTTLib.QoS"
 			EditorType="Enum"
 			#tag EnumValues
@@ -208,14 +222,19 @@ Implements ControlPacketOptions
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RETAINFlag"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -223,10 +242,13 @@ Implements ControlPacketOptions
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TopicName"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
